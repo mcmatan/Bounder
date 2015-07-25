@@ -54,11 +54,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ea5-xd-u6l">
+                                <rect key="frame" x="280" y="522" width="39" height="30"/>
+                                <state key="normal" title="LogIn">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="akG-c0-pGd" secondAttribute="centerX" id="0H3-Lz-Y7r"/>
+                            <constraint firstAttribute="centerX" secondItem="ea5-xd-u6l" secondAttribute="centerX" id="5A8-oF-8xD"/>
                             <constraint firstItem="akG-c0-pGd" firstAttribute="top" secondItem="aJP-05-8rv" secondAttribute="bottom" constant="30" id="AlA-C9-G2V"/>
+                            <constraint firstItem="ea5-xd-u6l" firstAttribute="top" secondItem="tCv-de-RHE" secondAttribute="bottom" constant="30" id="DhC-9e-pQg"/>
                             <constraint firstAttribute="centerX" secondItem="Z4b-Ar-SXJ" secondAttribute="centerX" id="H4E-wq-7xZ"/>
                             <constraint firstAttribute="centerX" secondItem="aJP-05-8rv" secondAttribute="centerX" id="KJY-No-Bit"/>
                             <constraint firstItem="HbS-b4-m5M" firstAttribute="top" secondItem="akG-c0-pGd" secondAttribute="bottom" constant="19" id="LFT-Is-oQ5"/>
@@ -71,6 +79,7 @@
                     </view>
                     <connections>
                         <outlet property="aboutMe" destination="HbS-b4-m5M" id="Ltw-5P-KpJ"/>
+                        <outlet property="logIn" destination="ea5-xd-u6l" id="VDP-Ma-3jl"/>
                         <outlet property="name" destination="aJP-05-8rv" id="bd0-bJ-OFH"/>
                         <outlet property="profileImage" destination="akG-c0-pGd" id="m8M-m4-hP6"/>
                         <outlet property="updatingValue" destination="Z4b-Ar-SXJ" id="Eb1-uh-gu0"/>

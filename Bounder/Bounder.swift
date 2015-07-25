@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 import Bond
 
- var textFiledPlaceHolderDeclaration = "PlaceHolder"
+var textFiledPlaceHolderDeclaration = "PlaceHolder"
+var btnTapDeclaration = "TapListener"
 
 protocol IBoundableView {
 
@@ -44,6 +45,7 @@ class Bounder {
     class func bindViewPropertiesToViewModel(viewPropertiesValueForName : [String : Any], viewModelPropertiesValueForName : [String : Any]) {
         for viewPropertyName in viewPropertiesValueForName.keys {
             var viewModelPropertyName = viewPropertyName
+            
             if let isViewModelProperty = viewModelPropertiesValueForName[viewModelPropertyName] {
                 var viewProperty = viewPropertiesValueForName[viewPropertyName]
                 
@@ -82,9 +84,25 @@ class Bounder {
                         }
                     }
                 }
-
+                
+            
+                
+            } else {
+                
+                if let isViewModelProperty = viewModelPropertiesValueForName[viewModelPropertyName + btnTapDeclaration] {
+                    var viewProperty = viewPropertiesValueForName[viewPropertyName]
+                    if viewProperty is UIButton {
+                        if let isViewModelProperty = viewModelPropertiesValueForName[viewModelPropertyName + btnTapDeclaration] as? Bond<UIControlEvents> {
+                            if let viewPropertyAsLabel = viewProperty as? UIButton {
+                                viewPropertyAsLabel.dynEvent.filter(==, .TouchUpInside) ->> isViewModelProperty
+                            }
+                        }
+                    }
+                }
                 
             }
+            
+            
         }
     }
     

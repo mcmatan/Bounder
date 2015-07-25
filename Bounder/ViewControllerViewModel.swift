@@ -18,11 +18,18 @@ class ViewControllerViewModel: NSObject, IBoundableViewModel {
     var writeSomthing = Dynamic<String>("")
     var writeSomthingPlaceHolder = Dynamic<String>("Write here")
     var profileImage = Dynamic<UIImage?>(UIImage())
+    var logInTapListener = Bond<UIControlEvents>()
     
     override init() {
         super.init()
         self.startUpdating()
         self.profileImage.value = UIImage(named: "images.jpeg")!
+        
+        self.logInTapListener = Bond<UIControlEvents>() { event in
+            // perform login
+            println("didPress")
+        }
+        
     }
     
     func setBondableView(view : IBoundableView) {
