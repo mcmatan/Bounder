@@ -1,0 +1,6 @@
+framework module Pods_Bounder {
+  umbrella header "Pods-Bounder-umbrella.h"
+
+  export *
+  module * { export * }
+}
