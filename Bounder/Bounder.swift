@@ -12,6 +12,7 @@ import Bond
 
 var textFiledPlaceHolderDeclaration = "PlaceHolder"
 var btnTapDeclaration = "TapListener"
+var btnEnableDeclaration = "Enabled"
 
 protocol IBoundableView {
 
@@ -92,11 +93,18 @@ class Bounder {
                 if let isViewModelProperty = viewModelPropertiesValueForName[viewModelPropertyName + btnTapDeclaration] {
                     var viewProperty = viewPropertiesValueForName[viewPropertyName]
                     if viewProperty is UIButton {
-                        if let isViewModelProperty = viewModelPropertiesValueForName[viewModelPropertyName + btnTapDeclaration] as? Bond<UIControlEvents> {
-                            if let viewPropertyAsLabel = viewProperty as? UIButton {
-                                viewPropertyAsLabel.dynEvent.filter(==, .TouchUpInside) ->> isViewModelProperty
+                        if let isViewModelListenerProperty = viewModelPropertiesValueForName[viewModelPropertyName + btnTapDeclaration] as? Bond<UIControlEvents> {
+                            if let viewPropertyAsButton = viewProperty as? UIButton {
+                                viewPropertyAsButton.dynEvent.filter(==, .TouchUpInside) ->> isViewModelListenerProperty
                             }
                         }
+                        if let isViewModelEnableProperty = viewModelPropertiesValueForName[viewModelPropertyName + btnEnableDeclaration] as? Dynamic<Bool> {
+                            if let viewPropertyAsButton = viewProperty as? UIButton {
+                                isViewModelEnableProperty ->> viewPropertyAsButton.dynEnabled
+                            }
+                        }
+                        
+
                     }
                 }
                 

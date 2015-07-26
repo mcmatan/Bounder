@@ -21,13 +21,8 @@ class ViewController: UIViewController, IBoundableView {
         super.viewDidLoad()
         self.viewModel = ViewControllerViewModel()
         Bounder.bind(self, viewModel: self.viewModel)
+        
     }
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()        // Dispose of any resources that can be recreated.
-    }
-
 }
 
  

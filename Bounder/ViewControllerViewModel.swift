@@ -12,14 +12,15 @@ import Bond
 
 class ViewControllerViewModel: NSObject, IBoundableViewModel {
     var view : IBoundableView!
-   var updatingValue = Dynamic<String>("Starting value")
+    var updatingValue = Dynamic<String>("Starting value")
     var name = Dynamic<String>("My name is Matan")
     var aboutMe = Dynamic<String>("I like coding stuff")
     var writeSomthing = Dynamic<String>("")
     var writeSomthingPlaceHolder = Dynamic<String>("Write here")
     var profileImage = Dynamic<UIImage?>(UIImage())
     var logInTapListener = Bond<UIControlEvents>()
-    
+    var logInEnabled = Dynamic<Bool>(false)
+
     override init() {
         super.init()
         self.startUpdating()
@@ -29,7 +30,7 @@ class ViewControllerViewModel: NSObject, IBoundableViewModel {
             // perform login
             println("didPress")
         }
-        
+        self.logInEnabled = writeSomthing.map { count($0) >= 3 }
     }
     
     func setBondableView(view : IBoundableView) {
