@@ -20,6 +20,7 @@ protocol IBoundableView {
 
 protocol IBoundableViewModel {
     func setBondableView(view : IBoundableView)
+    var view : IBoundableView! { get }
 }
 
 
@@ -56,6 +57,12 @@ class Bounder {
                                             isViewModelProperty <->> viewPropertyAsLabel.dynText
                                     }
                             }
+                    if let isViewModelProperty = viewModelPropertiesValueForName[viewModelPropertyName] as? Dynamic<NSAttributedString> {
+                        if let viewPropertyAsLabel = viewProperty as? UILabel {
+                            isViewModelProperty <->> viewPropertyAsLabel.dynAttributedText
+                        }
+                    }
+
                 }
                 
                 if viewProperty is UITextField {

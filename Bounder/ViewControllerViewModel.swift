@@ -11,9 +11,10 @@ import Foundation
 import Bond
 
 class ViewControllerViewModel: NSObject, IBoundableViewModel {
+    var popUpPresener = PopUpPresenter()
     var view : IBoundableView!
     var updatingValue = Dynamic<String>("Starting value")
-    var name = Dynamic<String>("My name is Matan")
+    var name = Dynamic<NSAttributedString>(NSAttributedString())
     var aboutMe = Dynamic<String>("I like coding stuff")
     var writeSomthing = Dynamic<String>("")
     var writeSomthingPlaceHolder = Dynamic<String>("Write here")
@@ -24,13 +25,33 @@ class ViewControllerViewModel: NSObject, IBoundableViewModel {
     override init() {
         super.init()
         self.startUpdating()
+        var attString = NSAttributedString(string: "My name is Matan", attributes: [NSForegroundColorAttributeName: UIColor.blueColor()])
+        self.name.value = attString
         self.profileImage.value = UIImage(named: "images.jpeg")!
-        
-        self.logInTapListener = Bond<UIControlEvents>() { event in
-            // perform login
-            println("didPress")
+        self.logInTapListener = Bond<UIControlEvents>() { [weak self] event in
+            self?.showPopUp()
         }
         self.logInEnabled = writeSomthing.map { count($0) >= 3 }
+    }
+    
+    func showPopUp() {
+        
+        var title = "Did press"
+        var message = "Content message"
+        var cancelButton = ButtonAction(title: "Cancel", handler: { (ButtonAction) -> Void in
+            println("Did press cancel")
+        })
+        var someEtherButton = ButtonAction(title: "Done", handler: { (ButtonAction) -> Void in
+            println("Did press done")
+        })
+
+        var moreButton = ButtonAction(title: "More", handler: { (ButtonAction) -> Void in
+            println("Did press moreButton")
+        })
+
+        self.popUpPresener.presentPopUp(title, message: message, cancelButton: cancelButton, buttons: [someEtherButton, moreButton]) { () -> Void in
+            println("Did present")
+        }
     }
     
     func setBondableView(view : IBoundableView) {

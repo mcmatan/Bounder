@@ -17,6 +17,7 @@
 		8A21F1311B613A74001F2350 /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A21F1301B613A74001F2350 /* ViewControllerViewModel.swift */; };
 		8A21F1341B613FBC001F2350 /* Bounder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A21F1331B613FBC001F2350 /* Bounder.swift */; };
 		8A6EA4561B62E1710023C0C9 /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8A6EA4551B62E1710023C0C9 /* images.jpeg */; };
+		8ABF3DA91B64D60500D44E4D /* PopUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF3DA81B64D60500D44E4D /* PopUpPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		8A21F1301B613A74001F2350 /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModel.swift; sourceTree = "<group>"; };
 		8A21F1331B613FBC001F2350 /* Bounder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bounder.swift; sourceTree = "<group>"; };
 		8A6EA4551B62E1710023C0C9 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
+		8ABF3DA81B64D60500D44E4D /* PopUpPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpPresenter.swift; sourceTree = "<group>"; };
 		BA9905E42B6FE7236953D58B /* Pods-Bounder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bounder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bounder/Pods-Bounder.debug.xcconfig"; sourceTree = "<group>"; };
 		F529A91382012F368131850A /* Pods_Bounder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bounder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				8A21F1331B613FBC001F2350 /* Bounder.swift */,
+				8ABF3DA81B64D60500D44E4D /* PopUpPresenter.swift */,
 			);
 			name = Bounder;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A21F1131B61393A001F2350 /* ViewController.swift in Sources */,
+				8ABF3DA91B64D60500D44E4D /* PopUpPresenter.swift in Sources */,
 				8A21F1311B613A74001F2350 /* ViewControllerViewModel.swift in Sources */,
 				8A21F1111B61393A001F2350 /* AppDelegate.swift in Sources */,
 				8A21F1341B613FBC001F2350 /* Bounder.swift in Sources */,
